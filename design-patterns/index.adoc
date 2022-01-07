@@ -1,1 +1,65 @@
-# Design Patterns
+include::../adocs/_toc.adoc[]
+
+= Design Patterns
+
+[cols="^1,^2,<5,<2", %autowidth.stretch]
+|===
+^| Category ^| Pattern ^| Descriptions ^| Keywords
+
+.5+| Creational 5
+^| xref:docs/abstract_factory.adoc[Abstract Factory]
+<a| asdfasdf
+<| adsfadsfasdf
+
+^| Builder
+<a| asdfasdf
+<| adsfadsfasdf
+
+^| Factory Method
+<a| asdfasdf
+<| adsfadsfasdf
+
+^| Prototype
+<a| asdfasdf
+<| adsfadsfasdf
+
+^| Singleton
+<a| asdfasdf
+<| adsfadsfasdf
+
+.7+| Structural 7
+^| Abstract Factory
+<a| asdfasdf
+<| adsfadsfasdf
+
+^| Abstract Factory
+<a| asdfasdf
+<| adsfadsfasdf
+
+^| Abstract Factory
+<a| asdfasdf
+<| adsfadsfasdf
+
+^| Abstract Factory
+<a| asdfasdf
+<| adsfadsfasdf
+
+^| Abstract Factory
+<a| asdfasdf
+<| adsfadsfasdf
+
+^| Abstract Factory
+<a| asdfasdf
+<| adsfadsfasdf
+
+^| Abstract Factory
+<a| asdfasdf
+<| adsfadsfasdf
+
+.11+| Behavioral 11
+^| Abstract Factory
+<a| asdfasdf
+<| adsfadsfasdf
+
+
+|===

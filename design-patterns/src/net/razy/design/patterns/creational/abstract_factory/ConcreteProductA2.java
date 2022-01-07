@@ -1,8 +1,8 @@
 package net.razy.design.patterns.creational.abstract_factory;
 
-public class ConcreteProductB extends AbstractProductB {
+public class ConcreteProductA2 extends AbstractProductA {
 
-    public ConcreteProductB(String factory) {
+    public ConcreteProductA2(String factory) {
         System.out.println("\t- The " + this.getClass().getSimpleName() + " created in the " + factory);
     }
 

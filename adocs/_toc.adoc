@@ -1,0 +1,9 @@
+:toc: left
+:toclevels: 2
+//:sectnums:
+//:sectnumlevels: 2
+//:partnums:
+//:imagesdir: ./imgs
+//:stylesdir: ./
+//:stylesheet: style.css
+:stem: latexmath

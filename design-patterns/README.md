@@ -30,12 +30,12 @@
 
 ## Creational Patterns
 
-### [Abstract Factory Pattern](./docs/abstract_factory.md)
+### [Abstract Factory Pattern](./docs/abstract_factory.adoc)
 
 * 서로 관련성이 있는 다양한 객체(재료)를 생성하기 위한 인터페이스를 제공한다.
 * `Abstract`, `Create`
 
-### [Factory Method Pattern](./docs/factory_method.md)
+### [Factory Method Pattern](./docs/factory_method.adoc)
 
 * 객체를 생성하기 위한 Method의 인터페이스를 정의하고, 인스턴스 생성은 서브클래스가 결정하게 한다.
 

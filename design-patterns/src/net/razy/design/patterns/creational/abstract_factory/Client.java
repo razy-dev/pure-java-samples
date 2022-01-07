@@ -7,7 +7,28 @@ package net.razy.design.patterns.creational.abstract_factory;
 public class Client {
 
     public static void main(String[] args) {
-        System.out.println("abc");
+
+        // 1 번 팩토리로 상품 생산
+        new ProductBuilder(new ConcreteFactory01()).build();
+
+        // 2 번 팩토리로 상품 생산
+        new ProductBuilder(new ConcreteFactory02()).build();
+    }
+
+    public static class ProductBuilder {
+
+        private AbstractFactory factory;
+
+        public ProductBuilder(AbstractFactory factory) {
+            this.factory = factory;
+        }
+
+        public void build() {
+            System.out.println("\nA Completed product made in the " + this.factory.getClass().getSimpleName());
+            this.factory.createProductA();
+            this.factory.createProductB();
+        }
+
     }
 
 }

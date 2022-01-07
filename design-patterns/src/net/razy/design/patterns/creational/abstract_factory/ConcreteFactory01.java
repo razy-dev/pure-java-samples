@@ -1,15 +1,15 @@
 package net.razy.design.patterns.creational.abstract_factory;
 
-public class ConcreteFactory extends AbstractFactory {
+public class ConcreteFactory01 extends AbstractFactory {
 
     @Override
     public AbstractProductA createProductA() {
-        return null;
+        return new ConcreteProductA1(this.getClass().getSimpleName());
     }
 
     @Override
     public AbstractProductB createProductB() {
-        return null;
+        return new ConcreteProductB(this.getClass().getSimpleName());
     }
 
 }
