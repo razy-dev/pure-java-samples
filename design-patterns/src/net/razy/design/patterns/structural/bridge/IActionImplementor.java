@@ -1,6 +1,6 @@
 package net.razy.design.patterns.structural.bridge;
 
-interface IBodyHandler {
+interface IActionImplementor {
 
     void say(String sound);
 

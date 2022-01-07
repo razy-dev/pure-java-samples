@@ -1,6 +1,6 @@
 package net.razy.design.patterns.structural.bridge;
 
-public class DogBodyHandler implements IBodyHandler {
+public class DogImplementor implements IActionImplementor {
 
     @Override
     public void say(String sound) {

@@ -1,6 +1,6 @@
 package net.razy.design.patterns.structural.bridge;
 
-public class CatBodyHandler implements IBodyHandler {
+public class CatImplementor implements IActionImplementor {
 
     @Override
     public void say(String sound) {

@@ -2,18 +2,21 @@ package net.razy.design.patterns.behavioral.command;
 
 public class Invoker {
 
-    Command command;
+    Command commandA;
 
-    public Invoker(Command command) {
-        this.setCommand(command);
+    Command commandB;
+
+    public Invoker(Command commandA, Command commandB) {
+        this.commandA = commandA;
+        this.commandB = commandB;
     }
 
-    public void setCommand(Command command) {
-        this.command = command;
+    public void commandA() {
+        commandA.execute();
     }
 
-    public void exec() {
-        command.execute();
+    public void commandB() {
+        commandB.execute();
     }
 
 }

@@ -9,12 +9,12 @@ package net.razy.design.patterns.structural.bridge;
 public class Main {
 
     public static void main(String[] args) {
-        AbstractBody cat = new CatBody(new CatBodyHandler());
+        AbstractAbstraction cat = new PetAbstraction(new CatImplementor());
         cat.say();
         cat.eat();
         cat.run();
 
-        AbstractBody dog = new DogBody(new DogBodyHandler());
+        AbstractAbstraction dog = new PetAbstraction(new DogImplementor());
         dog.say();
         dog.eat();
         dog.run();
