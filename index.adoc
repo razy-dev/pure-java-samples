@@ -1,0 +1,3 @@
+= Pure Java Samples
+
+== xref:design-patterns/index.adoc[Design Patterns]
