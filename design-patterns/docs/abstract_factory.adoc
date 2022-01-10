@@ -1,5 +1,4 @@
 :root_dir: ../../
-:parent_dir: ../
 :docs_dir: ./
 :src_dir: ../src/net/razy/design/patterns/creational/abstract_factory
 include::{root_dir}/adocs/_toc.adoc[]
@@ -19,10 +18,13 @@ include::{root_dir}/adocs/_to_index.adoc[]
 
 == UML
 
-image::abstract_factory-pattern-01.png[align=center]
-image::abstract_factory-pattern-02.png[align=center]
+image::abstract_factory-01.png[align=center]
+image::abstract_factory-02.png[align=center]
 
-== Sample Code
+include::{root_dir}/adocs/_to_index.adoc[]
+
+
+== Code Examples
 === Abstract Classes
 ==== Factory
 제품군(재료) 생성을 담당 하는 추상 클래스 or interface 정의
@@ -59,7 +61,7 @@ include::{src_dir}/AbstractProductB.java[]
 include::{src_dir}/ConcreteFactory01.java[]
 ----
 * *AbstractProductA* Type 의 `ConcreteProductA1` 생산
-* *AbstractProductB* Type 의 `ConcreteProductB` 생산
+* *AbstractProductB* Type 의 `ConcreteProduct2000` 생산
 
 [source,java]
 .ConcreteFactory02
@@ -67,7 +69,7 @@ include::{src_dir}/ConcreteFactory01.java[]
 include::{src_dir}/ConcreteFactory02.java[]
 ----
 * *AbstractProductA* Type 의 `ConcreteProductA2` 생산
-* *AbstractProductB* Type 의 `ConcreteProductB` 생산
+* *AbstractProductB* Type 의 `ConcreteProduct2000` 생산
 
 
 ==== Products
@@ -120,3 +122,5 @@ A Completed product made in the ConcreteFactory02
 * maker02 는 ConcreteFactory02 에서 제품군 생산.
 ** ConcreteProductA2
 ** ConcreteProductB
+
+include::{root_dir}/adocs/_to_index.adoc[]

@@ -1,6 +1,6 @@
 package net.razy.design.patterns.structural.decorator;
 
-public class ConcreteDecoratorB extends Decorator {
+public class ConcreteDecoratorB extends AbstractDecorator {
 
     public ConcreteDecoratorB(Component component) {
         super(component);
@@ -8,7 +8,7 @@ public class ConcreteDecoratorB extends Decorator {
 
     @Override
     public String title() {
-        return this.component.title() + " add decoration B";
+        return this.component.title() + "\n\t add decoration B";
     }
 
 }

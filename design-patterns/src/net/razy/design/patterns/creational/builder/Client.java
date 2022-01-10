@@ -8,8 +8,35 @@ package net.razy.design.patterns.creational.builder;
 public class Client {
 
     public static void main(String[] args) {
-        Product product = Product.builder()
+
+        // --------------------------------------------------------------------
+        // Using Method Chaining Pattern Builder
+        // --------------------------------------------------------------------
+        Product product = new ProductBuilder()
+                .title("Sample Product")
+                .color("BLACK")
+                .price(1500)
                 .build();
+        product.printInfo(ProductBuilder.class.getSimpleName());
+
+
+        // --------------------------------------------------------------------
+        // Using Setter Builder with Director
+        // --------------------------------------------------------------------
+        Director director = new Director();
+
+        // Set BlueProductBuilder
+        director.setBuilder(new BlueProductBuilder());
+        director.constructProduct();
+        Product blueProduct = director.getProduct();
+        blueProduct.printInfo(BlueProductBuilder.class.getSimpleName());
+
+        // Set GreenProductBuilder
+        director.setBuilder(new GreenProductBuilder());
+        director.constructProduct();
+        Product greenProduct = director.getProduct();
+        greenProduct.printInfo(GreenProductBuilder.class.getSimpleName());
+
     }
 
 }

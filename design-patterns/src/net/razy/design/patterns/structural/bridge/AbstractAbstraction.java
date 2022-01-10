@@ -2,20 +2,26 @@ package net.razy.design.patterns.structural.bridge;
 
 public abstract class AbstractAbstraction {
 
-    IActionImplementor implementor;
+    ActionImplementor implementor;
 
-    protected AbstractAbstraction(IActionImplementor implementor) {
+    protected AbstractAbstraction(ActionImplementor implementor) {
         this.implementor = implementor;
     }
 
     abstract public void say();
 
-    public void eat() {
-        implementor.eat();
+    public void move() {
+        implementor.move();
     }
 
-    public void run() {
-        implementor.run();
+    public void attack() {
+        implementor.attack();
+    }
+
+    public void play() {
+        this.say();
+        this.move();
+        this.attack();
     }
 
 }

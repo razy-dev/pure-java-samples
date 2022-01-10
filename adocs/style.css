@@ -17,7 +17,7 @@ h1 > a.link, h2 > a.link, h3 > a.link, h4 > a.link, h5 > a.link, h6 > a.link {
 
 code {
     font-weight: 600;
-    color: rgba(0, 0, 255, 1);
+    /*color: rgba(0, 0, 255, 1);*/
 }
 
 strong {
@@ -28,7 +28,7 @@ strong {
 em {
     font-style: inherit;
     font-weight: 600;
-    color: rgba(255, 0, 0, 1);
+    /*color: rgba(255, 0, 0, 1);*/
 }
 
 /* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */

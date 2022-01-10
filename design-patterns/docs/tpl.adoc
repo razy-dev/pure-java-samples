@@ -1,0 +1,25 @@
+:root_dir: ../../
+:docs_dir: ./
+:src_dir: ../src/net/razy/design/patterns/structural/builder
+include::{root_dir}/adocs/_toc.adoc[]
+
+= Builder Pattern
+
+== Descriptions
+
+include::{root_dir}/adocs/_to_index.adoc[]
+
+== UML
+image::[align=center]
+
+include::{root_dir}/adocs/_to_index.adoc[]
+
+== Code Examples
+
+.Class
+[source,java]
+----
+include::{src_dir}/Class.java[]
+----
+
+include::{root_dir}/adocs/_to_index.adoc[]

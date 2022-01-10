@@ -1,10 +1,10 @@
 package net.razy.design.patterns.creational.factory_method;
 
-public class ConcreteProduct extends AbstractProduct {
+public class ConcreteProductB extends AbstractProduct {
 
-    private String title = "Default Product";
+    private String title = "Type B Product";
 
-    private int price = 1000;
+    private int price = 1500;
 
     @Override
     public String getTitle() {

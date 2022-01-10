@@ -4,8 +4,10 @@
 //:sectnumlevels: 2
 //:partnums:
 //:imagesdir: ./imgs
-//:stylesdir: ./
-//:stylesheet: style.css
+ifdef::root_dir[]
+:stylesdir: {root_dir}/adocs
+:stylesheet: style.css
+endif::[]
 //:source-highlighter: highlight.js
 :source-highlighter: rouge
 //:source-highlighter: coderay

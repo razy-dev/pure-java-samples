@@ -39,18 +39,18 @@
 
 * 객체를 생성하기 위한 Method의 인터페이스를 정의하고, 인스턴스 생성은 서브클래스가 결정하게 한다.
 
-### [Builder Pattern](./docs/builder.md)
+### [Builder Pattern](./docs/builder.adoc)
 
 * `생성자 오버로딩` : 객체의 생성 방법과 표현 방법을 분리한다.
 * `builder`, `build`
 
-### [Prototype Pattern](./docs/prototype.md)
+### [Prototype Pattern](./docs/prototype.adoc)
 
 * Original 객체를 새로운 객체에 복사하여 우리의 필요에 따라 수정하는 패턴
 * `new()` 가 비쌀 때 또는, 같은 객체가 많이 필요 할 때
 * `clone`
 
-### [Singleton Pattern](./docs/singleton.md)
+### [Singleton Pattern](./docs/singleton.adoc)
 
 * 인스턴스를 하나만 만들어 사용하기 위한 패턴이다.
 * `getInstance`, `instance`
