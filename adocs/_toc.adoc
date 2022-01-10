@@ -6,4 +6,7 @@
 //:imagesdir: ./imgs
 //:stylesdir: ./
 //:stylesheet: style.css
+//:source-highlighter: highlight.js
+:source-highlighter: rouge
+//:source-highlighter: coderay
 :stem: latexmath

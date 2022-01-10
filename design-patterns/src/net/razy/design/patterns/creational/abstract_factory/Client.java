@@ -9,21 +9,23 @@ public class Client {
     public static void main(String[] args) {
 
         // 1 번 팩토리로 상품 생산
-        new ProductBuilder(new ConcreteFactory01()).build();
+        ProductMaker maker01 = new ProductMaker(new ConcreteFactory01());
+        maker01.make();
 
         // 2 번 팩토리로 상품 생산
-        new ProductBuilder(new ConcreteFactory02()).build();
+        ProductMaker maker02 = new ProductMaker(new ConcreteFactory02());
+        maker02.make();
     }
 
-    public static class ProductBuilder {
+    public static class ProductMaker {
 
         private AbstractFactory factory;
 
-        public ProductBuilder(AbstractFactory factory) {
+        public ProductMaker(AbstractFactory factory) {
             this.factory = factory;
         }
 
-        public void build() {
+        public void make() {
             System.out.println("\nA Completed product made in the " + this.factory.getClass().getSimpleName());
             this.factory.createProductA();
             this.factory.createProductB();

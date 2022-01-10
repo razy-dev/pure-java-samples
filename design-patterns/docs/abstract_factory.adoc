@@ -1,5 +1,6 @@
 :root_dir: ../../
 :parent_dir: ../
+:docs_dir: ./
 :src_dir: ../src/net/razy/design/patterns/creational/abstract_factory
 include::{root_dir}/adocs/_toc.adoc[]
 
@@ -14,6 +15,7 @@ include::{root_dir}/adocs/_toc.adoc[]
 cf> xref:factory_method.adoc[Factory Method Pattern]::
 * 조건에 따른 객체 생성을 팩토리 클래스(의 method)로 위임하여, 팩토리 클래스에서 객체를 생성하는 패턴.
 
+include::{root_dir}/adocs/_to_index.adoc[]
 
 == UML
 
@@ -22,7 +24,19 @@ image::abstract_factory-pattern-02.png[align=center]
 
 == Sample Code
 === Abstract Classes
-두 가지 제품(재료) 군
+==== Factory
+제품군(재료) 생성을 담당 하는 추상 클래스 or interface 정의
+
+[source,java]
+.AbstractFactory
+----
+include::{src_dir}/AbstractFactory.java[]
+----
+* AbstractProductA, AbstractProductB 두 가지 타입의 제품(재료)군을 생성하는 Factory
+
+==== Products
+두 가지 제품(재료) 군의 추상클래스/Interface 정의
+
 [source,java]
 .AbstractProductA
 ----
@@ -35,36 +49,74 @@ include::{src_dir}/AbstractProductA.java[]
 include::{src_dir}/AbstractProductB.java[]
 ----
 
-[source,java]
-.AbstractFactory
-----
-include::{src_dir}/AbstractFactory.java[]
-----
-AbstractProductA, AbstractProductB 두 가지 타입의 제품(재료)군을 생성하는 Factory 의 추상 클래스/interface
-
-
-
 === Concrete Classes
-[source,java]
-.ConcreteFactory01
-----
-include::{src_dir}/ConcreteFactory01.java[]
-----
+==== Factories
+실제 제품을 생산하는 Factory classes.
 
 [source,java]
 .ConcreteFactory01
 ----
 include::{src_dir}/ConcreteFactory01.java[]
 ----
+* *AbstractProductA* Type 의 `ConcreteProductA1` 생산
+* *AbstractProductB* Type 의 `ConcreteProductB` 생산
 
 [source,java]
-.ConcreteFactory01
+.ConcreteFactory02
 ----
-include::{src_dir}/ConcreteFactory01.java[]
+include::{src_dir}/ConcreteFactory02.java[]
+----
+* *AbstractProductA* Type 의 `ConcreteProductA2` 생산
+* *AbstractProductB* Type 의 `ConcreteProductB` 생산
+
+
+==== Products
+실제 구현된 제품군.
+
+* AbstractProductA Type 은 ConcreteProductA1, ConcreteProductA2 두 가지 구현
+* AbstractProductB Type 은 ConcreteProductB 한 가지로 구현
+
+[source,java]
+.ConcreteProductA1
+----
+include::{src_dir}/ConcreteProductA1.java[]
 ----
 
 [source,java]
-.ConcreteFactory01
+.ConcreteProductA2
 ----
-include::{src_dir}/ConcreteFactory01.java[]
+include::{src_dir}/ConcreteProductA2.java[]
 ----
+
+[source,java]
+.ConcreteProductB
+----
+include::{src_dir}/ConcreteProductB.java[]
+----
+
+=== Client
+Factory 를 이용하여 실제 완성품 생산.
+
+[source,java]
+.Client
+----
+include::{src_dir}/Client.java[]
+----
+.Result
+----
+A Completed product made in the ConcreteFactory01
+	- The ConcreteProductA1 created in the ConcreteFactory01
+	- The ConcreteProductB created in the ConcreteFactory01
+
+A Completed product made in the ConcreteFactory02
+	- The ConcreteProductA2 created in the ConcreteFactory02
+	- The ConcreteProductB created in the ConcreteFactory02
+----
+
+* maker01 은 ConcreteFactory01 에서 제품군 생산.
+** ConcreteProductA1
+** ConcreteProductB
+
+* maker02 는 ConcreteFactory02 에서 제품군 생산.
+** ConcreteProductA2
+** ConcreteProductB

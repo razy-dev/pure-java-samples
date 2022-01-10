@@ -1,5 +1,5 @@
 [ xref:/README.md[Document Home] ]
-ifdef::parent-path[]
-[ xref:{parent-path}[Parent] ]
+ifdef::parent-dir[]
+[ xref:{parent-dir}/index.adoc[Parent] ]
 endif::[]
 [ xref:#header[Top] ]
