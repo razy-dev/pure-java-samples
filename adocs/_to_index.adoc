@@ -1,6 +1,6 @@
-[ xref:{root_dir}}/README.md[Home] ]
+[ xref:{root_dir}/README.md[Root] ]
 ifdef::docs_dir[]
-[ xref:{docs_dir}/index.adoc[Contents] ]
+[ xref:{docs_dir}/index.adoc[Home] ]
 endif::[]
 ifdef::parent_dir[]
 [ xref:{parent_dir}/index.adoc[Upper] ]

@@ -12,13 +12,22 @@ package net.razy.design.patterns.behavioral.command;
 public class Client {
 
     public static void main(String[] args) {
-        Receiver receiver = new Receiver();
-        Command commandA = new CommanderA(receiver);
-        Command commandB = new CommanderB(receiver);
 
-        Invoker invoker = new Invoker(commandA, commandB);
-        invoker.commandA();
-        invoker.commandB();
+        // 실제 명령을 수행 할 대상 객체
+        Receiver receiver = new Receiver();
+
+        // 대상 걕체의 Action 을 실행 시킬 명령
+        Command commandOn = new TurnOnCommander(receiver);
+        Command commandOff = new TurnOffCommander(receiver);
+
+        // 명령의 실행을 주관하는 발동자
+        Invoker invoker = new Invoker();
+        invoker.registerCommand("On", commandOn);
+        invoker.registerCommand("Off", commandOff);
+
+        // 클라이언트는 발동자에게 명령 수행을 요청
+        invoker.execute("On");
+        invoker.execute("Off");
     }
 
 }

@@ -15,6 +15,7 @@ public class TheaterFacade {
     }
 
     public void play() {
+        System.out.println("\nTheater Play");
         amp.on();
         projector.on();
         projector.wideScreenMode();
@@ -23,6 +24,7 @@ public class TheaterFacade {
     }
 
     public void stop() {
+        System.out.println("\nTheater Stop");
         player.stop();
     }
 

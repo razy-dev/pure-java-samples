@@ -1,0 +1,73 @@
+:root_dir: ../../
+:docs_dir: ./
+:src_dir: ../src/net/razy/design/patterns/structural/proxy/
+include::{root_dir}/adocs/_toc.adoc[]
+
+= Builder Pattern
+
+== Descriptions
+다른 객체에 대한 **접근을 제어**하기 위한 대리자 역할
+
+Remote Proxy::
+* 요청 메시지와 인자를 인코딩하여 이를 다른 주소공간에 있는 실제 대상에게 전달
+* 장점 : 객체의 실제 호출 위치를 숨길 수 있음
+Virtual Proxy::
+* 실제 대상에 대한 추가적 정보를 보유하여 실제 접근에 대한 지연
+* 장점 : 객체에 대한 생성시점을 관리할 수 있음
+
+Protection Proxy::
+* 요청한 대상이 실제 요청할 수 있는 권한이 있는지 확인
+* 장점 : 객체에 대한 추가적인 관리를 수행할 수 있음
+
+=== 비교
+Adapter 패턴:: 서로 맞지 않는 인터페이스의 동작을 동기화 하기 위해 사용
+데코레이터 패턴:: 각 서비스를 추가 하는 거지만 Proxy는 횡단관심, 장식자는 핵심관심에 대한 거라 볼 수 있음.
+
+include::{root_dir}/adocs/_to_index.adoc[]
+
+== UML
+image::proxy.png[align=center]
+
+include::{root_dir}/adocs/_to_index.adoc[]
+
+== Code Examples
+=== Subject
+.Subject
+[source,java]
+----
+include::{src_dir}/Subject.java[]
+----
+
+.AbstractSubject
+[source,java]
+----
+include::{src_dir}/AbstractSubject.java[]
+----
+
+.RealSubject
+[source,java]
+----
+include::{src_dir}/RealSubject.java[]
+----
+
+=== Proxy
+.Proxy
+[source,java]
+----
+include::{src_dir}/Proxy.java[]
+----
+
+=== Client
+.Client
+[source,java]
+----
+include::{src_dir}/Client.java[]
+----
+
+=== Results
+----
+Call Proxy Method
+	- My Name is subject
+----
+
+include::{root_dir}/adocs/_to_index.adoc[]

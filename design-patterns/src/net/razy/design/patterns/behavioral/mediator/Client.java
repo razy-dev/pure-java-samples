@@ -8,10 +8,17 @@ package net.razy.design.patterns.behavioral.mediator;
  * 다른 객체의 존재를 모르는 상태에서도 메시지를 주고받을 수 있습니다.
  * eg> chatting: message -> send all users
  */
-public class Main {
+public class Client {
 
     public static void main(String[] args) {
+        Mediator mediator = new ConcreteMediator();
+        RedLight redLight = new RedLight(mediator);
+        GreenLight greenLight = new GreenLight(mediator);
+        YellowLight yellowLight = new YellowLight(mediator);
 
+        redLight.turnOn();
+        greenLight.turnOn();
+        yellowLight.turnOn();
     }
 
 }

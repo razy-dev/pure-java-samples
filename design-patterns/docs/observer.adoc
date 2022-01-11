@@ -1,0 +1,81 @@
+:root_dir: ../../
+:docs_dir: ./
+:src_dir: ../src/net/razy/design/patterns/behavioral/observer
+include::{root_dir}/adocs/_toc.adoc[]
+
+= Observer Pattern
+
+== Descriptions
+
+include::{root_dir}/adocs/_to_index.adoc[]
+
+== UML
+image::observer.png[align=center]
+
+include::{root_dir}/adocs/_to_index.adoc[]
+
+== Code Examples
+=== Subject
+.Subject
+[source,java]
+----
+include::{src_dir}/Subject.java[]
+----
+
+.ConcreteSubject
+[source,java]
+----
+include::{src_dir}/ConcreteSubject.java[]
+----
+
+=== Observers
+.Observer
+[source,java]
+----
+include::{src_dir}/Observer.java[]
+----
+
+.ConcreteObserverA
+[source,java]
+----
+include::{src_dir}/ConcreteObserverA.java[]
+----
+
+.ConcreteObserverB
+[source,java]
+----
+include::{src_dir}/ConcreteObserverB.java[]
+----
+
+.ConcreteObserverC
+[source,java]
+----
+include::{src_dir}/ConcreteObserverC.java[]
+----
+
+=== Client
+.Client
+[source,java]
+----
+include::{src_dir}/Client.java[]
+----
+
+=== Results
+----
+Set Subject State = State 1
+	-ConcreteObserverA Update by State 1
+	-ConcreteObserverC Update by State 1
+	-ConcreteObserverB Update by State 1
+
+Set Subject State = State 2
+	-ConcreteObserverA Update by State 2
+	-ConcreteObserverC Update by State 2
+	-ConcreteObserverB Update by State 2
+
+Set Subject State = State 3
+	-ConcreteObserverA Update by State 3
+	-ConcreteObserverC Update by State 3
+	-ConcreteObserverB Update by State 3
+----
+
+include::{root_dir}/adocs/_to_index.adoc[]

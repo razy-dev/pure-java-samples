@@ -3,11 +3,11 @@ package net.razy.design.patterns.behavioral.command;
 public class Receiver {
 
     public void on() {
-        System.out.println("Receiver On");
+        System.out.println("\t- Receiver On");
     }
 
     public void off() {
-        System.out.println("Receiver Off");
+        System.out.println("\t- Receiver Off");
     }
 
 }

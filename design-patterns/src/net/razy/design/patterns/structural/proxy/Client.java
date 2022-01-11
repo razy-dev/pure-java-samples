@@ -7,10 +7,11 @@ package net.razy.design.patterns.structural.proxy;
  * 데코레이터는 기능을 추가하거나, (좀 더 일반적으로는) ConcreteComponent의 핵심 기능에 추가 기능을 동적으로 선택할 수 있는 옵션을 제공한다.
  * 프록시는 세부적으로 정의된 하우스키핑 코드(housekeeping code)를 원본으로부터 분리(보호)하는 역할을 한다.
  */
-public class Main {
+public class Client {
 
     public static void main(String[] args) {
-
+        Subject subject = new Proxy("subject");
+        subject.printInfo();
     }
 
 }

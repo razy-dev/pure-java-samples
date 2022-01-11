@@ -1,6 +1,6 @@
 :root_dir: ../../
 :docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/structural/builder
+:src_dir: ../src/net/razy/design/patterns/behavioral/builder
 include::{root_dir}/adocs/_toc.adoc[]
 
 = Builder Pattern
@@ -16,10 +16,16 @@ include::{root_dir}/adocs/_to_index.adoc[]
 
 == Code Examples
 
-.Class
+=== Client
+.Client
 [source,java]
 ----
-include::{src_dir}/Class.java[]
+include::{src_dir}/Client.java[]
+----
+
+=== Results
+----
+
 ----
 
 include::{root_dir}/adocs/_to_index.adoc[]

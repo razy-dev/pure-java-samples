@@ -3,15 +3,15 @@ package net.razy.design.patterns.structural.facade;
 public class CDPlayer {
 
     public void on() {
-        System.out.println("CDPlayer On");
+        System.out.println("\t- CDPlayer On");
     }
 
     public void play() {
-        System.out.println("CDPlayer Play");
+        System.out.println("\t- CDPlayer Play");
     }
 
     public void stop() {
-        System.out.println("CDPlayer Stopped");
+        System.out.println("\t- CDPlayer Stopped");
     }
 
 }

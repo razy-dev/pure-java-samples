@@ -4,6 +4,8 @@ include::{root_dir}/adocs/_toc.adoc[]
 
 = Design Patterns
 
+xref:_design_patterns_card.pdf[Design Patterns Card]
+
 [cols="^1,^2,<5,<2", %autowidth.stretch]
 |===
 ^| Category ^| Pattern ^| Descriptions ^| Keywords
@@ -52,22 +54,76 @@ include::{root_dir}/adocs/_toc.adoc[]
  * 서브클래스를 생성하는 것보다 융통성 있는 방법을 제공합니다.
 <| `Component 와 Decorator 의 Interface 가 같다.`
 
-^| Abstract Factory
-<a| asdfasdf
-<| adsfadsfasdf
+^| xref:facade.adoc[Facade]
+<a| 복잡한 소프트웨어에 대한 간략화된 인터페이스를 제공
+<| `간략한 인터페이스`, `절차`
 
-^| Abstract Factory
-<a| asdfasdf
-<| adsfadsfasdf
+^| xref:flyweight.adoc[Flyweight]
+<a| 가상 인스턴스 제공. 생성된 객체를 생성한 후 저장하여 재활용
+<| `데이터공유`, `상태저장`, `가상 인스턴스`, `재사용`
 
-^| Abstract Factory
-<a| asdfasdf
-<| adsfadsfasdf
+^| xref:proxy.adoc[Proxy]
+<a| * 다른 객체에 대한 접근을 제어
+** cf> `Decorator` 는 기능 추가, `Proxy` 는 접근 제어
+<| -
 
 //-------------------------------------
 
 .11+| *Behavioral* 11
-^| Abstract Factory
-<a| asdfasdf
-<| adsfadsfasdf
+^| xref:chain_of_responsibility.adoc[Chain of Responsibility]
+<a| * 요청 처리가 들어오게 되면 그것을 수신하는 객체가 자신이 처리할 수 없는 경우에는
+ * 다음 객체에게 문제를 넘김으로써 최종적으로 요청을 처리할 수 있는 객체의 의해 처리가 가능하도록 하는 패턴
+ * eg> Spring Security Filter Chain
+<| `next`
+
+^| xref:command.adoc[Command]
+<a| 요청을 객체로 캡슐화. +
+save, logging, undo
+<| `Invoker`, `Command`, `Receiver`, `Client`
+
+^| xref:interpreter.adoc[Interpreter]
+<a| 문법을 해석할 수 있는 객체를 조합하여 구문을 특정한 문법으로 해석할 수 있도록 합니다.
+<| -
+
+^| xref:iterator.adoc[Interator]
+<a| * 저장소에 저장된 데이터를 순서대로 접근하기 위한 패턴이다.
+* 순서대로 접근하기 위한 방법은 저장소의 종류와는 상관없이 동일한 방식(API)을 제공한다.
+* 저장소와 순차 접근 방법을 분리
+<| `Aggreate`, `next`, `hasNext`
+
+^| xref:mediator.adoc[Mediator]
+<a| * 객체들의 집합이 어떻게 상호작용하는지 함축해놓은 객체를 정의
+<| `Colleague`, `상호관계`, `상호작용`
+
+^| xref:memento.adoc[Memento]
+<a| * 메멘토 패턴은 객체의 상태 정보를 저장하고 사용자의 필요에 의하여 원하는 시점의 데이터를 복원 할 수 있는 패턴을 의미합니다.
+<|
+
+^| xref:observer.adoc[Observer]
+<a| * 객체 사이에 일 대 다의 의존 관계를 정의해 두어, 어떤 객체의 상태가 변할 때 그 객체에 의존성을 가진 다른 객체들이 그 변화를 통지받고 자동으로 갱신될 수 있게 만듭니다.
+<|
+
+^| xref:state.adoc[State]
+<a| * 객체의 내부 상태에 따라 스스로 행동을 변경할 수 있게 허가하는 패턴으로, 이렇게 하면 객체는 마치 자신의 클래스를 바꾸는 것처럼 보입니다.
+* state 패턴을 구현한다는 것은 각 상태에 대응하는 별도의 클래스를 만들고 상태 전이 로직을 그 클래스들로 옮기는 작업을 뜻한다.
+<|
+
+^| xref:strategy.adoc[Strategy]
+<a| * 동일 계열의 알고리즘을 정의하고 상호교환이 가능하게 한다
+<| `Algorithm`
+
+^| xref:template_method.adoc[Template Method]
+<a| * 객체의 연산에는 알고리즘의 뼈대만을 정의하고 각 단계에서 수행할 구체적 처리는 서브클래스 쪽으로 미룹니다.
+<|
+
+^| xref:visitor.adoc[Visitor]
+<a| * 알고리즘을 객체 구조에서 분리
+* 객체 구조를 이루는 원소에 대해 수행할 연산을 표현합니다.
+* 연산을 적용할 원소의 클래스를 변경하지 않고도 새로운 연산을 정의할 수 있게 합니다.
+* Visitor 패턴내의 메소드는 Concrete element 개수만큼 존재한다
+<| `Accept`
+
+^| xref:.adoc[]
+<a|
+<|
 |===
