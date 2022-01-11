@@ -1,4 +1,4 @@
-[ xref:{root_dir}/README.md[Root] ]
+[ xref:pure-java-samples[Root] ]
 ifdef::docs_dir[]
 [ xref:{docs_dir}/index.adoc[Home] ]
 endif::[]
