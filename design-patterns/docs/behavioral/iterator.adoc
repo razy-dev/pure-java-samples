@@ -1,0 +1,67 @@
+:root_path: ../../..
+:docs_path: ..
+:src_path: ../../src/net/razy/design/patterns/behavioral/iterator
+include::{root_path}/adocs/_toc.adoc[]
+
+= Iterator Pattern
+
+== Descriptions
+
+include::{root_path}/adocs/_to_index.adoc[]
+
+== UML
+image::iterator.png[align=center]
+
+image::iterator-02.jpeg[align=center]
+
+include::{root_path}/adocs/_to_index.adoc[]
+
+== Code Examples
+=== Iterator
+.Iterator
+[source,java]
+----
+include::{src_path}/Iterator.java[]
+----
+
+.ListIterator
+[source,java]
+----
+include::{src_path}/ListIterator.java[]
+----
+
+=== Aggregate
+.Aggregate
+[source,java]
+----
+include::{src_path}/Aggregate.java[]
+----
+
+.ConcreteAggregate
+[source,java]
+----
+include::{src_path}/ConcreteAggregate.java[]
+----
+
+=== Item
+.Item
+[source,java]
+----
+include::{src_path}/Item.java[]
+----
+
+=== Client
+.Client
+[source,java]
+----
+include::{src_path}/Client.java[]
+----
+
+=== Results
+----
+item 1
+item 2
+item 3
+----
+
+include::{root_path}/adocs/_to_index.adoc[]

@@ -2,18 +2,23 @@ package net.razy.design.patterns.behavioral.strategy;
 
 public class Context {
 
-    BarkBehavior barkBehavior;
+    DiscountStrategy strategy;
 
-    public Context(BarkBehavior barkBehavior) {
-        this.setBarkBehavior(barkBehavior);
+    public Context(DiscountStrategy strategy) {
+        this.setStrategy(strategy);
     }
 
-    public void setBarkBehavior(BarkBehavior barkBehavior) {
-        this.barkBehavior = barkBehavior;
+    public void setStrategy(DiscountStrategy strategy) {
+        System.out.println("\nApply the " + strategy.getClass().getSimpleName());
+        this.strategy = strategy;
     }
 
-    public void bark() {
-        this.barkBehavior.bark();
+    public void calculate(int price, int quantity) {
+        System.out.println(String.format("\tPrice : %d and Quantity : %d => Amount : %8.2f",
+                price,
+                quantity,
+                this.strategy.calculate(price, quantity)
+        ));
     }
 
 }

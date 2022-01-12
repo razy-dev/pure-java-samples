@@ -2,24 +2,14 @@ package net.razy.design.patterns.behavioral.state;
 
 public class Context {
 
-    final State onState;
-
-    final State offState;
-
-    State state;
-
-    public Context() {
-        this.onState = new OnState(this);
-        this.offState = new OffState(this);
-        this.state = offState;
-    }
+    State state = new OffState();
 
     public void on() {
-        this.state.on();
+        this.state.on(this);
     }
 
     public void off() {
-        this.state.off();
+        this.state.off(this);
     }
 
     public void setState(State state) {

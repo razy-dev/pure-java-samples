@@ -1,5 +1,6 @@
-:root_path: ../..
-:src_path: ../src/net/razy/design/patterns/behavioral/builder
+:root_path: ../../..
+:docs_path: ..
+:src_path: ../../src/net/razy/design/patterns/behavioral/builder
 include::{root_path}/adocs/_toc.adoc[]
 
 = Builder Pattern

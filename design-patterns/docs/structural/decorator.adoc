@@ -1,0 +1,59 @@
+:root_path: ../../..
+:docs_path: ..
+:src_path: ../../src/net/razy/design/patterns/structural/decorator
+include::{root_path}/adocs/_toc.adoc[]
+
+= Decorator Pattern
+
+== Descriptions
+
+include::{root_path}/adocs/_to_index.adoc[]
+
+== UML
+image::decorator.png[align=center]
+
+include::{root_path}/adocs/_to_index.adoc[]
+
+== Code Examples
+
+=== Component
+.Component
+[source,java]
+----
+include::{src_path}/Component.java[]
+----
+
+=== Decorator
+.AbstractDecorator
+[source,java]
+----
+include::{src_path}/AbstractDecorator.java[]
+----
+
+.ConcreteDecoratorA
+[source,java]
+----
+include::{src_path}/ConcreteDecoratorA.java[]
+----
+
+.ConcreteDecoratorB
+[source,java]
+----
+include::{src_path}/ConcreteDecoratorB.java[]
+----
+
+=== Client
+.Client
+[source,java]
+----
+include::{src_path}/Client.java[]
+----
+
+=== Results
+----
+Component
+	 add decoration A
+	 add decoration B
+----
+
+include::{root_path}/adocs/_to_index.adoc[]

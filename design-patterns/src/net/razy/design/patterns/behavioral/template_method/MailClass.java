@@ -4,7 +4,7 @@ public class MailClass extends AbstractClass {
 
     @Override
     void send() {
-        System.out.println("Send Mail");
+        System.out.println("\t- Send Mail");
     }
 
 }

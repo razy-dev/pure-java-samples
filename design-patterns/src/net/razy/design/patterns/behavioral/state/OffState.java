@@ -1,19 +1,15 @@
 package net.razy.design.patterns.behavioral.state;
 
-public class OffState extends State {
-
-    public OffState(Context context) {
-        super(context);
-    }
+public class OffState implements State {
 
     @Override
-    public void on() {
+    public void on(Context context) {
         System.out.println("Turn On");
-        context.setState(context.onState);
+        context.setState(new OnState());
     }
 
     @Override
-    public void off() {
+    public void off(Context context) {
         System.out.println("It's already off");
     }
 

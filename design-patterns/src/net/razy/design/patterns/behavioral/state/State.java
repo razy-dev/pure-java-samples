@@ -1,15 +1,9 @@
 package net.razy.design.patterns.behavioral.state;
 
-public abstract class State {
+public interface State {
 
-    Context context;
+    void on(Context context);
 
-    public State(Context context) {
-        this.context = context;
-    }
-
-    abstract void on();
-
-    abstract void off();
+    void off(Context context);
 
 }

@@ -4,7 +4,7 @@ public class TextClass extends AbstractClass {
 
     @Override
     void send() {
-        System.out.println("Send Text");
+        System.out.println("\t- Send Text");
     }
 
 }
