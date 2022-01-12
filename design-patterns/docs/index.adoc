@@ -3,126 +3,151 @@ include::{root_path}/adocs/_toc.adoc[]
 
 = Design Patterns
 
+== Summary
 xref:_design_patterns_card.pdf[Design Patterns Card]
 
 include::{root_path}/adocs/_to_index.adoc[]
 
+== Design Patterns
 [cols="^1,^2,<5,<2", %autowidth.stretch]
 |===
 ^| Category ^| Pattern ^| Descriptions ^| Keywords
 
 .5+| *Creational* 5
 ^| xref:creational/abstract_factory.adoc[Abstract Factory]
-<a| * 서로 관련성이 있는 다양한 객체(재료)를 생성하기 위한 인터페이스를 제공한다.
+<a| * 제품군(재료) 생성
 <| `Abstract`, `Create`
 
 ^| xref:creational/builder.adoc[Builder]
-<a| * 객체의 생성 방법과 표현 방법을 분리한다.
+<a| * 객체의 생성 방법을 객체와 분리
 <| `build`, `builder`, +
 `생산자 오버로딩`
 
 ^| xref:creational/factory_method.adoc[Factory Method]
-<a| * 객체를 생성하기 위한 Method 의 인터페이스를 정의하고,
-* 인스턴스 생성은 서브클래스가 결정하게 한다.
+<a| * 구현 클래스에서 생성 기능 구현
 <| -
 
 ^| xref:creational/prototype.adoc[Prototype]
-<a| * 생성할 객체들의 타입이 프로토타입인 인스턴스로부터 결정되도록 하며,
-* 인스턴스는 새 객체를 만들기 위해 자신을 `복제(clone)` 한다.
+<a| * 프로토타입 인스턴스로부터 `복제(clone)`
 <| `clone`
 
 ^| xref:creational/singleton.adoc[Singleton]
-<a| * 인스턴스를 하나만 만들어 사용하기 위한 패턴이다.
+<a| * 인스턴스를 하나만 생성
 <| `instance`, `getInstance`
 
 //-------------------------------------
 
 .7+| *Structural* 7
 ^| xref:structural/adapter.adoc[Adapter]
-<a| * 클래스의 인터페이스를 사용자가 기대하는 인터페이스 형태로 적응(변환) 시킵니다.
+<a| * 인터페이스 형태 적응(변환)
 <| `Adapter`, `Adaptee`
 
 ^| xref:structural/bridge.adoc[Bridge]
-<a| * 기능을 정의하는 클래스와 (기능)구현 클래스를 분리 하는 패턴.
+<a| * 기능을 정의하는 클래스(모체)와 (기능)구현 클래스를 분리
 <| `Abstraction`, `Implementor`, `RefineMethod`
 
 ^| xref:structural/composite.adoc[Composite]
-<a| * 전체-부분 패턴, 단일 객체와 복합 객체 모두 동일하게 처리.
+<a| * 전체-부분 패턴, 단일 객체와 복합 객체 모두 동일한 인테페이스
 <| `전체`, `부분`, `Component`, `Composite`, `recursive`
 
 ^| xref:structural/decorator.adoc[Decorator]
-<a| * 객체에 동적으로 새로운 책임을 추가할 수 있게 합니다.
- * 서브클래스를 생성하는 것보다 융통성 있는 방법을 제공합니다.
+<a| * 동적으로 새로운 기능 추가
 <| `Component 와 Decorator 의 Interface 가 같다.`
 
 ^| xref:structural/facade.adoc[Facade]
-<a| 복잡한 소프트웨어에 대한 간략화된 인터페이스를 제공
+<a| * 복잡한 기능을 모아 간략화된 인터페이스 제공
 <| `간략한 인터페이스`, `절차`
 
 ^| xref:structural/flyweight.adoc[Flyweight]
-<a| 가상 인스턴스 제공. 생성된 객체를 생성한 후 저장하여 재활용
+<a| * 가상 인스턴스 제공. 생성된 객체를 저장 후 재활용
 <| `데이터공유`, `상태저장`, `가상 인스턴스`, `재사용`
 
 ^| xref:structural/proxy.adoc[Proxy]
-<a| * 다른 객체에 대한 접근을 제어
-** cf> `Decorator` 는 기능 추가, `Proxy` 는 접근 제어
+<a| * 다른(내부) 객체에 대한 접근을 제어
 <| -
 
 //-------------------------------------
 
 .11+| *Behavioral* 11
 ^| xref:behavioral/chain_of_responsibility.adoc[Chain of Responsibility]
-<a| * 요청 처리가 들어오게 되면 그것을 수신하는 객체가 자신이 처리할 수 없는 경우에는
- * 다음 객체에게 문제를 넘김으로써 최종적으로 요청을 처리할 수 있는 객체의 의해 처리가 가능하도록 하는 패턴
+<a| * 연속된 기능 클래스가 각자 자신이 처리할 수 있는 요청만 처리
  * eg> Spring Security Filter Chain
 <| `next`
 
 ^| xref:behavioral/command.adoc[Command]
-<a| 요청을 객체로 캡슐화. +
-save, logging, undo
+<a| * 요청을 객체로 캡슐화, 요청에 기능 추가
 <| `Invoker`, `Command`, `Receiver`, `Client`
 
 ^| xref:behavioral/interpreter.adoc[Interpreter]
-<a| 문법을 해석할 수 있는 객체를 조합하여 구문을 특정한 문법으로 해석할 수 있도록 합니다.
+<a| * 구문을 특정한 문법으로 해석
 <| -
 
 ^| xref:behavioral/iterator.adoc[Interator]
-<a| * 저장소에 저장된 데이터를 순서대로 접근하기 위한 패턴이다.
-* 순서대로 접근하기 위한 방법은 저장소의 종류와는 상관없이 동일한 방식(API)을 제공한다.
-* 저장소와 순차 접근 방법을 분리
+<a| * 저장소(데이터)와 순차 접근 방법을 분리
 <| `Aggreate`, `next`, `hasNext`
 
 ^| xref:behavioral/mediator.adoc[Mediator]
-<a| * 객체들의 집합이 어떻게 상호작용하는지 함축해놓은 객체를 정의
+<a| * 중간객체(Mediator)가 여러 객체들의 상호작용 간략화
 <| `Colleague`, `상호관계`, `상호작용`
 
 ^| xref:behavioral/memento.adoc[Memento]
-<a| * 메멘토 패턴은 객체의 상태 정보를 저장하고 사용자의 필요에 의하여 원하는 시점의 데이터를 복원 할 수 있는 패턴을 의미합니다.
-<|
+<a| * 상태 정보를 저장
+<| `rollback`, `undo`
 
 ^| xref:behavioral/observer.adoc[Observer]
-<a| * 객체 사이에 일 대 다의 의존 관계를 정의해 두어, 어떤 객체의 상태가 변할 때 그 객체에 의존성을 가진 다른 객체들이 그 변화를 통지받고 자동으로 갱신될 수 있게 만듭니다.
-<|
+<a| * 객체의 상태가 변할 때 다른 객체들에게 변화를 통지
+<| `notify`, `update`
 
 ^| xref:behavioral/state.adoc[State]
-<a| * 객체의 내부 상태에 따라 스스로 행동을 변경할 수 있게 허가하는 패턴으로, 이렇게 하면 객체는 마치 자신의 클래스를 바꾸는 것처럼 보입니다.
-* state 패턴을 구현한다는 것은 각 상태에 대응하는 별도의 클래스를 만들고 상태 전이 로직을 그 클래스들로 옮기는 작업을 뜻한다.
-<|
+<a| * 각 상태에 대응하는 별도의 클래스를 만들어 상태 전이 로직 처리
+<| `Context`, `State`
 
 ^| xref:behavioral/strategy.adoc[Strategy]
-<a| * 동일 계열의 알고리즘을 정의하고 상호교환이 가능하게 한다
+<a| * 동적 알고리즘 변경
 <| `Algorithm`
 
 ^| xref:behavioral/template_method.adoc[Template Method]
-<a| * 객체의 연산에는 알고리즘의 뼈대만을 정의하고 각 단계에서 수행할 구체적 처리는 서브클래스 쪽으로 미룹니다.
+<a| * Template Method 에서 abstract method 의 조합(절차) 정의
 <|
 
 ^| xref:behavioral/visitor.adoc[Visitor]
-<a| * 알고리즘을 객체 구조에서 분리
-* 객체 구조를 이루는 원소에 대해 수행할 연산을 표현합니다.
-* 연산을 적용할 원소의 클래스를 변경하지 않고도 새로운 연산을 정의할 수 있게 합니다.
-* Visitor 패턴내의 메소드는 Concrete element 개수만큼 존재한다
+<a| * 객체의 각 원소에 대해 수행할 기능을 분리
 <| `Accept`
+|===
+
+include::{root_path}/adocs/_to_index.adoc[]
+
+== Design patterns comparison
+
+[cols="^2,<8", %autowidth.stretch]
+|===
+^| Pattern ^| 특징
+
+| Abstract Factory  a| * 제품군(부품) 생성
+| Builder           a| * Constructor Overloading 재정의
+* 구축(Build) 방법이 구죽 대상(Product)과 분리
+| Factory Method    a| * 하위(구현) 클래스에서 생성
+|===
+
+[cols="^2,<8", %autowidth.stretch]
+|===
+^| Pattern ^| 특징
+
+| Proxy         a| * (내부의) 다른 객체를 숨김
+| Decorator     a| * 다른 객체에 기능을 추가
+| Adapter       a| * (내부) 객체의 인터페이스를 변경
+| Facade        a| * (내부의) 여러 객체의 복잡한 기능을 모아, 보다 단순한 인터페이스로 변경
+| Bridge        a| * 기능과 구현 분리
+| Mediator      a| * 여러 객체간 커뮤니케이션 채널 단순화
+|===
+
+[cols="^2,<8", %autowidth.stretch]
+|===
+^| Pattern ^| 특징
+
+| Facade            a| * (내부의) 여러 객체의 복잡한 기능을 모아, 보다 단순한 인터페이스로 변경
+| Template Method   a| * (내부) Method 의 조합을 정의(Template Method).
+* (내부) Method 의 동작은 구현 클래스에서 정의
 |===
 
 include::{root_path}/adocs/_to_index.adoc[]
