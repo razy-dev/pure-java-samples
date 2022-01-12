@@ -7,6 +7,19 @@ include::{root_path}/adocs/_toc.adoc[]
 xref:_design_patterns_card.pdf[Design Patterns Card]
 
 include::{root_path}/adocs/_to_index.adoc[]
+[cols="^2,<8", %autowidth.stretch]
+|===
+^| Category     ^| Patterns
+
+^| Creational (5)
+a| `Abstract Factory`, `Builder`, `Factory Method`, `Prototype`, `Singleton`
+
+^| Structural (7)
+a| `Adapter`, `Bridge`, `Composite`, `Decorator`, `Facade`, `Flyweight`, `Proxy` +
+
+^| Behavioral (11)
+a| ``, ``, ``, ``, ``, ``, ``, ``, ``, ``, ``
+|===
 
 == Design Patterns
 [cols="^1,^2,<5,<2", %autowidth.stretch]
