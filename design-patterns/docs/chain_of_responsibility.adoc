@@ -1,7 +1,6 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/behavioral/chain_of_responsibility
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/behavioral/chain_of_responsibility
+include::{root_path}/adocs/_toc.adoc[]
 
 = Chain of Responsibility Pattern
 
@@ -11,38 +10,38 @@ include::{root_dir}/adocs/_toc.adoc[]
 
  * eg> Spring Security Filter Chain
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 image::chain_of_responsibility.png[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 === Handler
 .Handler
 [source,java]
 ----
-include::{src_dir}/Handler.java[]
+include::{src_path}/Handler.java[]
 ----
 
 === Concrete Handlers
 .NegativeHandler
 [source,java]
 ----
-include::{src_dir}/NegativeHandler.java[]
+include::{src_path}/NegativeHandler.java[]
 ----
 
 .ZeroHandler
 [source,java]
 ----
-include::{src_dir}/ZeroHandler.java[]
+include::{src_path}/ZeroHandler.java[]
 ----
 
 .PositiveHandler
 [source,java]
 ----
-include::{src_dir}/PositiveHandler.java[]
+include::{src_path}/PositiveHandler.java[]
 ----
 
 
@@ -50,7 +49,7 @@ include::{src_dir}/PositiveHandler.java[]
 .Client
 [source,java]
 ----
-include::{src_dir}/Client.java[]
+include::{src_path}/Client.java[]
 ----
 
 === Results
@@ -71,4 +70,4 @@ It's Positive.
 End of Chain
 ----
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]

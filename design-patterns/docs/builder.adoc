@@ -1,7 +1,6 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/creational/builder
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/creational/builder
+include::{root_path}/adocs/_toc.adoc[]
 
 = Builder Pattern
 
@@ -13,14 +12,14 @@ include::{root_dir}/adocs/_toc.adoc[]
 
 ref> link:https://projectlombok.org/features/Builder[Lombok @Builder]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 image::builder-01.png[align=center]
 
 image::builder-02.png[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 * Builder 구현 방법에는 `setter`, `Method Chaining pattern` 등 여러가지 구현 방법이 있다.
@@ -34,14 +33,14 @@ include::{root_dir}/adocs/_to_index.adoc[]
 .Product
 [source,java]
 ----
-include::{src_dir}/Product.java[]
+include::{src_path}/Product.java[]
 ----
 
 ==== Builder
 .Builder
 [source,java]
 ----
-include::{src_dir}/ProductBuilder.java[]
+include::{src_path}/ProductBuilder.java[]
 ----
 
 === Setter & Director Example
@@ -49,40 +48,40 @@ include::{src_dir}/ProductBuilder.java[]
 .Product
 [source,java]
 ----
-include::{src_dir}/Product.java[]
+include::{src_path}/Product.java[]
 ----
 
 ==== Builder
 .AbstractBuilder
 [source,java]
 ----
-include::{src_dir}/AbstractBuilder.java[]
+include::{src_path}/AbstractBuilder.java[]
 ----
 
 .BlueProductBuilder
 [source,java]
 ----
-include::{src_dir}/BlueProductBuilder.java[]
+include::{src_path}/BlueProductBuilder.java[]
 ----
 
 .GreenProductBuilder
 [source,java]
 ----
-include::{src_dir}/GreenProductBuilder.java[]
+include::{src_path}/GreenProductBuilder.java[]
 ----
 
 ==== Director
 .Director
 [source,java]
 ----
-include::{src_dir}/Director.java[]
+include::{src_path}/Director.java[]
 ----
 
 === Client
 .Client
 [source,java]
 ----
-include::{src_dir}/Client.java[]
+include::{src_path}/Client.java[]
 ----
 
 === Results
@@ -102,4 +101,4 @@ Made in GreenProductBuilder
 	- Color : Green
 	- Price : 1100
 ----
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]

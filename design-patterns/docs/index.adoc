@@ -1,6 +1,6 @@
-:root_dir: ../../
-:parent_dir: ../
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:parent_path: ../
+include::{root_path}/adocs/_toc.adoc[]
 
 = Design Patterns
 

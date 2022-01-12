@@ -1,7 +1,6 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/structural/adapter
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/structural/adapter
+include::{root_path}/adocs/_toc.adoc[]
 
 = Adapter Pattern
 
@@ -9,12 +8,12 @@ include::{root_dir}/adocs/_toc.adoc[]
 클래스의 인터페이스를 사용자가 기대하는 인터페이스 형태로 적응(변환) 시킵니다.
 서로 일치하지 않는 인터페이스를 갖는 클래스들을 함께 동작시킵니다.
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 image::adapter.png[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 === Abstract/Interface Classes
@@ -22,7 +21,7 @@ include::{root_dir}/adocs/_to_index.adoc[]
 .Target
 [source,java]
 ----
-include::{src_dir}/ITarget.java[]
+include::{src_path}/ITarget.java[]
 ----
 
 === Concrete Classes
@@ -30,7 +29,7 @@ include::{src_dir}/ITarget.java[]
 .AdapteeA
 [source,java]
 ----
-include::{src_dir}/AdapteeA.java[]
+include::{src_path}/AdapteeA.java[]
 ----
 
 ==== Adapter A
@@ -39,14 +38,14 @@ AdapteeA 에 대한 Adapter
 .AdapterA
 [source,java]
 ----
-include::{src_dir}/AdapterA.java[]
+include::{src_path}/AdapterA.java[]
 ----
 
 ==== Adaptee B
 .AdapteeB
 [source,java]
 ----
-include::{src_dir}/AdapteeB.java[]
+include::{src_path}/AdapteeB.java[]
 ----
 
 ==== Adapter B
@@ -55,7 +54,7 @@ AdapteeB 에 대한 Adapter
 .AdapterB
 [source,java]
 ----
-include::{src_dir}/AdapterB.java[]
+include::{src_path}/AdapterB.java[]
 ----
 
 
@@ -63,7 +62,7 @@ include::{src_dir}/AdapterB.java[]
 .Client
 [source,java]
 ----
-include::{src_dir}/Client.java[]
+include::{src_path}/Client.java[]
 ----
 
 === Results
@@ -72,4 +71,4 @@ It's a specific request within the Adaptee A
 It's a specific request within the Adaptee B
 ----
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]

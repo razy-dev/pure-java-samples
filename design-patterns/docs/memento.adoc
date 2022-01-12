@@ -1,7 +1,6 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/behavioral/memento
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/behavioral/memento
+include::{root_path}/adocs/_toc.adoc[]
 
 = Memento Pattern
 
@@ -14,40 +13,40 @@ include::{root_dir}/adocs/_toc.adoc[]
 
 * 메멘토 객체 자신은 불투명 자료형(케어테이커는 변경할 수 없거나 변경해서는 안 되는)이다.
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 image::memento.jpeg[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 === Memento
 .Memento
 [source,java]
 ----
-include::{src_dir}/Memento.java[]
+include::{src_path}/Memento.java[]
 ----
 
 === Originator
 .Originator
 [source,java]
 ----
-include::{src_dir}/Originator.java[]
+include::{src_path}/Originator.java[]
 ----
 
 === Caretaker
 .Caretaker
 [source,java]
 ----
-include::{src_dir}/Caretaker.java[]
+include::{src_path}/Caretaker.java[]
 ----
 
 === Client
 .Client
 [source,java]
 ----
-include::{src_dir}/Client.java[]
+include::{src_path}/Client.java[]
 ----
 
 === Results
@@ -76,4 +75,4 @@ Restore Originator State
 	- Undo History is empty!!
 ----
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]

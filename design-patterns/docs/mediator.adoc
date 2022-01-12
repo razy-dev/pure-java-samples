@@ -1,7 +1,6 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/behavioral/mediator
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/behavioral/mediator
+include::{root_path}/adocs/_toc.adoc[]
 
 = Mediator Pattern
 
@@ -14,14 +13,14 @@ include::{root_dir}/adocs/_toc.adoc[]
 객체들은 더 이상 다른 객체와 서로 직접 통신하지 않으며 대신 중재자를 통해 통신한다.
 이를 통해 통신 객체 간 의존성을 줄일 수 있으므로 결합도를 감소시킨다.
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 image::mediator.png[align=center]
 
 image::mediator-02.jpeg[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 
@@ -29,7 +28,7 @@ include::{root_dir}/adocs/_to_index.adoc[]
 .Client
 [source,java]
 ----
-include::{src_dir}/Client.java[]
+include::{src_path}/Client.java[]
 ----
 
 === Results
@@ -50,4 +49,4 @@ Yellow Light Turn On
 	- Yellow Light is On
 ----
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]

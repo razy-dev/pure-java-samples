@@ -1,7 +1,6 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/creational/abstract_factory
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/creational/abstract_factory
+include::{root_path}/adocs/_toc.adoc[]
 
 = Abstract Factory Pattern
 
@@ -14,14 +13,14 @@ include::{root_dir}/adocs/_toc.adoc[]
 cf> xref:factory_method.adoc[Factory Method Pattern]::
 * 조건에 따른 객체 생성을 팩토리 클래스(의 method)로 위임하여, 팩토리 클래스에서 객체를 생성하는 패턴.
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 
 image::abstract_factory-01.png[align=center]
 image::abstract_factory-02.png[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 
 == Code Examples
@@ -32,7 +31,7 @@ include::{root_dir}/adocs/_to_index.adoc[]
 [source,java]
 .AbstractFactory
 ----
-include::{src_dir}/AbstractFactory.java[]
+include::{src_path}/AbstractFactory.java[]
 ----
 * AbstractProductA, AbstractProductB 두 가지 타입의 제품(재료)군을 생성하는 Factory
 
@@ -42,13 +41,13 @@ include::{src_dir}/AbstractFactory.java[]
 [source,java]
 .AbstractProductA
 ----
-include::{src_dir}/AbstractProductA.java[]
+include::{src_path}/AbstractProductA.java[]
 ----
 
 [source,java]
 .AbstractProductB
 ----
-include::{src_dir}/AbstractProductB.java[]
+include::{src_path}/AbstractProductB.java[]
 ----
 
 === Concrete Classes
@@ -58,7 +57,7 @@ include::{src_dir}/AbstractProductB.java[]
 [source,java]
 .ConcreteFactory01
 ----
-include::{src_dir}/ConcreteFactory01.java[]
+include::{src_path}/ConcreteFactory01.java[]
 ----
 * *AbstractProductA* Type 의 `ConcreteProductA1` 생산
 * *AbstractProductB* Type 의 `ConcreteProduct2000` 생산
@@ -66,7 +65,7 @@ include::{src_dir}/ConcreteFactory01.java[]
 [source,java]
 .ConcreteFactory02
 ----
-include::{src_dir}/ConcreteFactory02.java[]
+include::{src_path}/ConcreteFactory02.java[]
 ----
 * *AbstractProductA* Type 의 `ConcreteProductA2` 생산
 * *AbstractProductB* Type 의 `ConcreteProduct2000` 생산
@@ -81,19 +80,19 @@ include::{src_dir}/ConcreteFactory02.java[]
 [source,java]
 .ConcreteProductA1
 ----
-include::{src_dir}/ConcreteProductA1.java[]
+include::{src_path}/ConcreteProductA1.java[]
 ----
 
 [source,java]
 .ConcreteProductA2
 ----
-include::{src_dir}/ConcreteProductA2.java[]
+include::{src_path}/ConcreteProductA2.java[]
 ----
 
 [source,java]
 .ConcreteProductB
 ----
-include::{src_dir}/ConcreteProductB.java[]
+include::{src_path}/ConcreteProductB.java[]
 ----
 
 === Client
@@ -102,7 +101,7 @@ Factory 를 이용하여 실제 완성품 생산.
 [source,java]
 .Client
 ----
-include::{src_dir}/Client.java[]
+include::{src_path}/Client.java[]
 ----
 .Result
 ----
@@ -123,4 +122,4 @@ A Completed product made in the ConcreteFactory02
 ** ConcreteProductA2
 ** ConcreteProductB
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]

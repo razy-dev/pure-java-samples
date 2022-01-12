@@ -1,7 +1,6 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/behavioral/interpreter
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/behavioral/interpreter
+include::{root_path}/adocs/_toc.adoc[]
 
 = Interpreter Pattern
 
@@ -9,12 +8,12 @@ include::{root_dir}/adocs/_toc.adoc[]
 
 문법을 해석할 수 있는 객체를 조합하여 구문을 특정한 문법으로 해석할 수 있도록 합니다.
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 image::interpreter.png[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 
@@ -26,4 +25,4 @@ ToDo
 ToDo
 ----
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]

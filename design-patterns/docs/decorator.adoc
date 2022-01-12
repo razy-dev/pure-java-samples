@@ -1,18 +1,17 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/structural/decorator
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/structural/decorator
+include::{root_path}/adocs/_toc.adoc[]
 
 = Decorator Pattern
 
 == Descriptions
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 image::decorator.png[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 
@@ -20,33 +19,33 @@ include::{root_dir}/adocs/_to_index.adoc[]
 .Component
 [source,java]
 ----
-include::{src_dir}/Component.java[]
+include::{src_path}/Component.java[]
 ----
 
 === Decorator
 .AbstractDecorator
 [source,java]
 ----
-include::{src_dir}/AbstractDecorator.java[]
+include::{src_path}/AbstractDecorator.java[]
 ----
 
 .ConcreteDecoratorA
 [source,java]
 ----
-include::{src_dir}/ConcreteDecoratorA.java[]
+include::{src_path}/ConcreteDecoratorA.java[]
 ----
 
 .ConcreteDecoratorB
 [source,java]
 ----
-include::{src_dir}/ConcreteDecoratorB.java[]
+include::{src_path}/ConcreteDecoratorB.java[]
 ----
 
 === Client
 .Client
 [source,java]
 ----
-include::{src_dir}/Client.java[]
+include::{src_path}/Client.java[]
 ----
 
 === Results
@@ -56,4 +55,4 @@ Component
 	 add decoration B
 ----
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]

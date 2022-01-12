@@ -1,7 +1,6 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/structural/facade
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/structural/facade
+include::{root_path}/adocs/_toc.adoc[]
 
 = Facade Pattern
 
@@ -11,12 +10,12 @@ include::{root_dir}/adocs/_toc.adoc[]
 * 퍼사드 객체는 복잡한 소프트웨어 바깥쪽의 코드가 라이브러리의 안쪽 코드에 의존하는 일을 감소시켜 주고,
 * 복잡한 소프트웨어 및 절차를 사용 할 수 있게 간단한 인터페이스를 제공해줍니다.
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 image::facade.png[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 
@@ -24,19 +23,19 @@ include::{root_dir}/adocs/_to_index.adoc[]
 .Amp
 [source,java]
 ----
-include::{src_dir}/Amp.java[]
+include::{src_path}/Amp.java[]
 ----
 
 .CDPlayer
 [source,java]
 ----
-include::{src_dir}/CDPlayer.java[]
+include::{src_path}/CDPlayer.java[]
 ----
 
 .Projector
 [source,java]
 ----
-include::{src_dir}/Projector.java[]
+include::{src_path}/Projector.java[]
 ----
 
 === Facade
@@ -44,14 +43,14 @@ include::{src_dir}/Projector.java[]
 .TheaterFacade
 [source,java]
 ----
-include::{src_dir}/TheaterFacade.java[]
+include::{src_path}/TheaterFacade.java[]
 ----
 
 === Client
 .Client
 [source,java]
 ----
-include::{src_dir}/Client.java[]
+include::{src_path}/Client.java[]
 ----
 
 === Results
@@ -67,4 +66,4 @@ Theater Stop
 	- CDPlayer Stopped
 ----
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]

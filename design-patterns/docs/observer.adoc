@@ -1,63 +1,62 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/behavioral/observer
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/behavioral/observer
+include::{root_path}/adocs/_toc.adoc[]
 
 = Observer Pattern
 
 == Descriptions
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 image::observer.png[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 === Subject
 .Subject
 [source,java]
 ----
-include::{src_dir}/Subject.java[]
+include::{src_path}/Subject.java[]
 ----
 
 .ConcreteSubject
 [source,java]
 ----
-include::{src_dir}/ConcreteSubject.java[]
+include::{src_path}/ConcreteSubject.java[]
 ----
 
 === Observers
 .Observer
 [source,java]
 ----
-include::{src_dir}/Observer.java[]
+include::{src_path}/Observer.java[]
 ----
 
 .ConcreteObserverA
 [source,java]
 ----
-include::{src_dir}/ConcreteObserverA.java[]
+include::{src_path}/ConcreteObserverA.java[]
 ----
 
 .ConcreteObserverB
 [source,java]
 ----
-include::{src_dir}/ConcreteObserverB.java[]
+include::{src_path}/ConcreteObserverB.java[]
 ----
 
 .ConcreteObserverC
 [source,java]
 ----
-include::{src_dir}/ConcreteObserverC.java[]
+include::{src_path}/ConcreteObserverC.java[]
 ----
 
 === Client
 .Client
 [source,java]
 ----
-include::{src_dir}/Client.java[]
+include::{src_path}/Client.java[]
 ----
 
 === Results
@@ -78,4 +77,4 @@ Set Subject State = State 3
 	-ConcreteObserverB Update by State 3
 ----
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]

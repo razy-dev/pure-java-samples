@@ -1,7 +1,6 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/behavioral/command
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/behavioral/command
+include::{root_path}/adocs/_toc.adoc[]
 
 = Command Pattern
 
@@ -15,51 +14,51 @@ HeadFirst::
 * 또한 요청 내역을 큐에 저장하거나 로그로 기록할 수도 있으며, 작업취소 기능도 지원 가능합니다.
 * 실행될 기능의 변경에도 호출자 클래스를 수정 없이 그대로 사용 할 수 있도록 해준다.
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 image::command.png[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 === Command
 .Command
 [source,java]
 ----
-include::{src_dir}/Command.java[]
+include::{src_path}/Command.java[]
 ----
 
 .AbstractCommand
 [source,java]
 ----
-include::{src_dir}/AbstractCommand.java[]
+include::{src_path}/AbstractCommand.java[]
 ----
 
 .TurnOnCommander
 [source,java]
 ----
-include::{src_dir}/TurnOnCommander.java[]
+include::{src_path}/TurnOnCommander.java[]
 ----
 
 .TurnOffCommander
 [source,java]
 ----
-include::{src_dir}/TurnOffCommander.java[]
+include::{src_path}/TurnOffCommander.java[]
 ----
 
 === Invoker
 .Invoker
 [source,java]
 ----
-include::{src_dir}/Invoker.java[]
+include::{src_path}/Invoker.java[]
 ----
 
 === Client
 .Client
 [source,java]
 ----
-include::{src_dir}/Client.java[]
+include::{src_path}/Client.java[]
 ----
 
 === Results
@@ -73,4 +72,4 @@ Invoker Do Something and Execute command
 	- Receiver Off
 ----
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]

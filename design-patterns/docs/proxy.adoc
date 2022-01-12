@@ -1,7 +1,6 @@
-:root_dir: ../../
-:docs_dir: ./
-:src_dir: ../src/net/razy/design/patterns/structural/proxy/
-include::{root_dir}/adocs/_toc.adoc[]
+:root_path: ../..
+:src_path: ../src/net/razy/design/patterns/structural/proxy/
+include::{root_path}/adocs/_toc.adoc[]
 
 = Builder Pattern
 
@@ -23,45 +22,45 @@ Protection Proxy::
 Adapter 패턴:: 서로 맞지 않는 인터페이스의 동작을 동기화 하기 위해 사용
 데코레이터 패턴:: 각 서비스를 추가 하는 거지만 Proxy는 횡단관심, 장식자는 핵심관심에 대한 거라 볼 수 있음.
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == UML
 image::proxy.png[align=center]
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 === Subject
 .Subject
 [source,java]
 ----
-include::{src_dir}/Subject.java[]
+include::{src_path}/Subject.java[]
 ----
 
 .AbstractSubject
 [source,java]
 ----
-include::{src_dir}/AbstractSubject.java[]
+include::{src_path}/AbstractSubject.java[]
 ----
 
 .RealSubject
 [source,java]
 ----
-include::{src_dir}/RealSubject.java[]
+include::{src_path}/RealSubject.java[]
 ----
 
 === Proxy
 .Proxy
 [source,java]
 ----
-include::{src_dir}/Proxy.java[]
+include::{src_path}/Proxy.java[]
 ----
 
 === Client
 .Client
 [source,java]
 ----
-include::{src_dir}/Client.java[]
+include::{src_path}/Client.java[]
 ----
 
 === Results
@@ -70,4 +69,4 @@ Call Proxy Method
 	- My Name is subject
 ----
 
-include::{root_dir}/adocs/_to_index.adoc[]
+include::{root_path}/adocs/_to_index.adoc[]
