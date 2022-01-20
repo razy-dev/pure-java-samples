@@ -25,6 +25,51 @@ include::{root_path}/adocs/_to_index.adoc[]
 
 == Code Examples
 
+=== Mediator
+.Mediator
+[source,java]
+----
+include::{src_path}/Mediator.java[]
+----
+
+.ConcreteMediator
+[source,java]
+----
+include::{src_path}/ConcreteMediator.java[]
+----
+
+=== Colleagues
+.Colleague
+[source,java]
+----
+include::{src_path}/Colleague.java[]
+----
+
+.AbstractLight
+[source,java]
+----
+include::{src_path}/AbstractLight.java[]
+----
+
+.RedLight
+[source,java]
+----
+include::{src_path}/RedLight.java[]
+----
+
+.GreenLight
+[source,java]
+----
+include::{src_path}/GreenLight.java[]
+----
+
+.YellowLight
+[source,java]
+----
+include::{src_path}/YellowLight.java[]
+----
+
+
 === Client
 .Client
 [source,java]
