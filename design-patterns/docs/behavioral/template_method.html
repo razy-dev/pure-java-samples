@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Template Method Pattern</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, #toctitle, .sidebarblock > .content > .title {
+    color: rgba(0, 0, 0, 1);
+    font-weight: bold;
+}
+
+h1 > a.link, h2 > a.link, h3 > a.link, h4 > a.link, h5 > a.link, h6 > a.link {
+    color: rgba(0, 0, 0, 1);
+    font-weight: bold;
+}
+
+code {
+    font-weight: 600;
+    /*color: rgba(0, 0, 255, 1);*/
+}
+
+strong {
+    font-weight: 600;
+    color: rgba(0, 0, 0 0.9);
+}
+
+em {
+    font-style: inherit;
+    font-weight: 600;
+    /*color: rgba(255, 0, 0, 1);*/
+}
+
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay {
+    background: #f7f7f8
+}
+
+.CodeRay .line-numbers {
+    border-right: 1px solid currentColor;
+    opacity: .35;
+    padding: 0 .5em 0 0
+}
+
+.CodeRay span.line-numbers {
+    display: inline-block;
+    margin-right: .75em
+}
+
+.CodeRay .line-numbers strong {
+    color: #000
+}
+
+table.CodeRay {
+    border-collapse: separate;
+    border: 0;
+    margin-bottom: 0;
+    background: none
+}
+
+table.CodeRay td {
+    vertical-align: top;
+    line-height: inherit
+}
+
+table.CodeRay td.line-numbers {
+    text-align: right
+}
+
+table.CodeRay td.code {
+    padding: 0 0 0 .75em
+}
+
+.CodeRay .debug {
+    color: #fff !important;
+    background: #000080 !important
+}
+
+.CodeRay .annotation {
+    color: #007
+}
+
+.CodeRay .attribute-name {
+    color: #000080
+}
+
+.CodeRay .attribute-value {
+    color: #700
+}
+
+.CodeRay .binary {
+    color: #509
+}
+
+.CodeRay .comment {
+    color: #998;
+    font-style: italic
+}
+
+.CodeRay .char {
+    color: #04d
+}
+
+.CodeRay .char .content {
+    color: #04d
+}
+
+.CodeRay .char .delimiter {
+    color: #039
+}
+
+.CodeRay .class {
+    color: #458;
+    font-weight: bold
+}
+
+.CodeRay .complex {
+    color: #a08
+}
+
+.CodeRay .constant, .CodeRay .predefined-constant {
+    color: #008080
+}
+
+.CodeRay .color {
+    color: #099
+}
+
+.CodeRay .class-variable {
+    color: #369
+}
+
+.CodeRay .decorator {
+    color: #b0b
+}
+
+.CodeRay .definition {
+    color: #099
+}
+
+.CodeRay .delimiter {
+    color: #000
+}
+
+.CodeRay .doc {
+    color: #970
+}
+
+.CodeRay .doctype {
+    color: #34b
+}
+
+.CodeRay .doc-string {
+    color: #d42
+}
+
+.CodeRay .escape {
+    color: #666
+}
+
+.CodeRay .entity {
+    color: #800
+}
+
+.CodeRay .error {
+    color: #808
+}
+
+.CodeRay .exception {
+    color: inherit
+}
+
+.CodeRay .filename {
+    color: #099
+}
+
+.CodeRay .function {
+    color: #900;
+    font-weight: bold
+}
+
+.CodeRay .global-variable {
+    color: #008080
+}
+
+.CodeRay .hex {
+    color: #058
+}
+
+.CodeRay .integer, .CodeRay .float {
+    color: #099
+}
+
+.CodeRay .include {
+    color: #555
+}
+
+.CodeRay .inline {
+    color: #000
+}
+
+.CodeRay .inline .inline {
+    background: #ccc
+}
+
+.CodeRay .inline .inline .inline {
+    background: #bbb
+}
+
+.CodeRay .inline .inline-delimiter {
+    color: #d14
+}
+
+.CodeRay .inline-delimiter {
+    color: #d14
+}
+
+.CodeRay .important {
+    color: #555;
+    font-weight: bold
+}
+
+.CodeRay .interpreted {
+    color: #b2b
+}
+
+.CodeRay .instance-variable {
+    color: #008080
+}
+
+.CodeRay .label {
+    color: #970
+}
+
+.CodeRay .local-variable {
+    color: #963
+}
+
+.CodeRay .octal {
+    color: #40e
+}
+
+.CodeRay .predefined {
+    color: #369
+}
+
+.CodeRay .preprocessor {
+    color: #579
+}
+
+.CodeRay .pseudo-class {
+    color: #555
+}
+
+.CodeRay .directive {
+    font-weight: bold
+}
+
+.CodeRay .type {
+    font-weight: bold
+}
+
+.CodeRay .predefined-type {
+    color: inherit
+}
+
+.CodeRay .reserved, .CodeRay .keyword {
+    color: #000;
+    font-weight: bold
+}
+
+.CodeRay .key {
+    color: #808
+}
+
+.CodeRay .key .delimiter {
+    color: #606
+}
+
+.CodeRay .key .char {
+    color: #80f
+}
+
+.CodeRay .value {
+    color: #088
+}
+
+.CodeRay .regexp .delimiter {
+    color: #808
+}
+
+.CodeRay .regexp .content {
+    color: #808
+}
+
+.CodeRay .regexp .modifier {
+    color: #808
+}
+
+.CodeRay .regexp .char {
+    color: #d14
+}
+
+.CodeRay .regexp .function {
+    color: #404;
+    font-weight: bold
+}
+
+.CodeRay .string {
+    color: #d20
+}
+
+.CodeRay .string .string .string {
+    background: #ffd0d0
+}
+
+.CodeRay .string .content {
+    color: #d14
+}
+
+.CodeRay .string .char {
+    color: #d14
+}
+
+.CodeRay .string .delimiter {
+    color: #d14
+}
+
+.CodeRay .shell {
+    color: #d14
+}
+
+.CodeRay .shell .delimiter {
+    color: #d14
+}
+
+.CodeRay .symbol {
+    color: #990073
+}
+
+.CodeRay .symbol .content {
+    color: #a60
+}
+
+.CodeRay .symbol .delimiter {
+    color: #630
+}
+
+.CodeRay .tag {
+    color: #008080
+}
+
+.CodeRay .tag-special {
+    color: #d70
+}
+
+.CodeRay .variable {
+    color: #036
+}
+
+.CodeRay .insert {
+    background: #afa
+}
+
+.CodeRay .delete {
+    background: #faa
+}
+
+.CodeRay .change {
+    color: #aaf;
+    background: #007
+}
+
+.CodeRay .head {
+    color: #f8f;
+    background: #505
+}
+
+.CodeRay .insert .insert {
+    color: #080
+}
+
+.CodeRay .delete .delete {
+    color: #800
+}
+
+.CodeRay .change .change {
+    color: #66f
+}
+
+.CodeRay .head .head {
+    color: #f4f
+}
+
+pre.rouge table td {
+    padding: 5px;
+}
+
+pre.rouge table pre {
+    margin: 0;
+}
+
+pre.rouge .cm {
+    color: #999988;
+    font-style: italic;
+}
+
+pre.rouge .cp {
+    color: #999999;
+    font-weight: bold;
+}
+
+pre.rouge .c1 {
+    color: #999988;
+    font-style: italic;
+}
+
+pre.rouge .cs {
+    color: #999999;
+    font-weight: bold;
+    font-style: italic;
+}
+
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+    color: #999988;
+    font-style: italic;
+}
+
+pre.rouge .err {
+    color: #a61717;
+    background-color: #e3d2d2;
+}
+
+pre.rouge .gd {
+    color: #000000;
+    background-color: #ffdddd;
+}
+
+pre.rouge .ge {
+    color: #000000;
+    font-style: italic;
+}
+
+pre.rouge .gr {
+    color: #aa0000;
+}
+
+pre.rouge .gh {
+    color: #999999;
+}
+
+pre.rouge .gi {
+    color: #000000;
+    background-color: #ddffdd;
+}
+
+pre.rouge .go {
+    color: #888888;
+}
+
+pre.rouge .gp {
+    color: #555555;
+}
+
+pre.rouge .gs {
+    font-weight: bold;
+}
+
+pre.rouge .gu {
+    color: #aaaaaa;
+}
+
+pre.rouge .gt {
+    color: #aa0000;
+}
+
+pre.rouge .kc {
+    color: #000000;
+    font-weight: bold;
+}
+
+pre.rouge .kd {
+    color: #000000;
+    font-weight: bold;
+}
+
+pre.rouge .kn {
+    color: #000000;
+    font-weight: bold;
+}
+
+pre.rouge .kp {
+    color: #000000;
+    font-weight: bold;
+}
+
+pre.rouge .kr {
+    color: #000000;
+    font-weight: bold;
+}
+
+pre.rouge .kt {
+    color: #445588;
+    font-weight: bold;
+}
+
+pre.rouge .k, pre.rouge .kv {
+    color: #000000;
+    font-weight: bold;
+}
+
+pre.rouge .mf {
+    color: #009999;
+}
+
+pre.rouge .mh {
+    color: #009999;
+}
+
+pre.rouge .il {
+    color: #009999;
+}
+
+pre.rouge .mi {
+    color: #009999;
+}
+
+pre.rouge .mo {
+    color: #009999;
+}
+
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+    color: #009999;
+}
+
+pre.rouge .sb {
+    color: #d14;
+}
+
+pre.rouge .sc {
+    color: #d14;
+}
+
+pre.rouge .sd {
+    color: #d14;
+}
+
+pre.rouge .s2 {
+    color: #d14;
+}
+
+pre.rouge .se {
+    color: #d14;
+}
+
+pre.rouge .sh {
+    color: #d14;
+}
+
+pre.rouge .si {
+    color: #d14;
+}
+
+pre.rouge .sx {
+    color: #d14;
+}
+
+pre.rouge .sr {
+    color: #009926;
+}
+
+pre.rouge .s1 {
+    color: #d14;
+}
+
+pre.rouge .ss {
+    color: #990073;
+}
+
+pre.rouge .s, pre.rouge .sa, pre.rouge .dl {
+    color: #d14;
+}
+
+pre.rouge .na {
+    color: #008080;
+}
+
+pre.rouge .bp {
+    color: #999999;
+}
+
+pre.rouge .nb {
+    color: #0086B3;
+}
+
+pre.rouge .nc {
+    color: #445588;
+    font-weight: bold;
+}
+
+pre.rouge .no {
+    color: #008080;
+}
+
+pre.rouge .nd {
+    color: #3c5d5d;
+    font-weight: bold;
+}
+
+pre.rouge .ni {
+    color: #800080;
+}
+
+pre.rouge .ne {
+    color: #990000;
+    font-weight: bold;
+}
+
+pre.rouge .nf, pre.rouge .fm {
+    color: #990000;
+    font-weight: bold;
+}
+
+pre.rouge .nl {
+    color: #990000;
+    font-weight: bold;
+}
+
+pre.rouge .nn {
+    color: #555555;
+}
+
+pre.rouge .nt {
+    color: #000080;
+}
+
+pre.rouge .vc {
+    color: #008080;
+}
+
+pre.rouge .vg {
+    color: #008080;
+}
+
+pre.rouge .vi {
+    color: #008080;
+}
+
+pre.rouge .nv, pre.rouge .vm {
+    color: #008080;
+}
+
+pre.rouge .ow {
+    color: #000000;
+    font-weight: bold;
+}
+
+pre.rouge .o {
+    color: #000000;
+    font-weight: bold;
+}
+
+pre.rouge .w {
+    color: #bbbbbb;
+}
+
+pre.rouge {
+    background-color: #f8f8f8;
+}
+
+/*#content > h1:first-child:not([class]), body {*/
+/*    background-color: #45494a;*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*.content > pre {*/
+/*    filter: invert(90%) hue-rotate(180deg);*/
+/*}*/
+
+/*a, a:hover, a:focus {*/
+/*    color: #589df6;*/
+/*}*/
+
+/*table.tableblock, th.tableblock, td.tableblock {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*!* was: rgba(0,0,0,.8) *!*/
+/*table:not(.linenotable):not(.CodeRay) thead tr th, table thead tr td, table:not(.linenotable):not(.CodeRay) tfoot tr th, table:not(.linenotable):not(.CodeRay) tfoot tr td {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*abbr, acronym {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*table:not(.linenotable):not(.CodeRay) tr th, table tr td {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*kbd {*/
+/*    background-color: #626262 !important;*/
+/*    color: #bbbbbb;*/
+/*    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em #777 inset;*/
+/*    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 .1em #777 inset*/
+/*}*/
+
+/*.menuseq, .menu {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*#footer {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*tbody tr th, tbody tr th p, tfoot tr th, tfoot tr th p {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*.conum[data-value] {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*!* was: rgba(0,0,0,.85) *!*/
+/*.paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*.quoteblock blockquote, .quoteblock blockquote p {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*#content > h1:first-child:not([class]) {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*#header .details br + span.author:before {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*#header .details span.email a {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*#header > h1:first-child {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*blockquote, blockquote p {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*!* was: rgba(0,0,0,.6) *!*/
+/*blockquote cite a, blockquote cite a:visited {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*#header .details {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*.admonitionblock > table td.content {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*.quoteblock .quoteblock {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*.quoteblock .attribution cite, .verseblock .attribution cite {*/
+/*    color: #bbbbbb*/
+/*}*/
+
+/*!* was: f8f8f7 *!*/
+/*table:not(.linenotable):not(.CodeRay) tbody tr {*/
+/*    background: #45494a*/
+/*}*/
+
+/*table:not(.linenotable):not(.CodeRay) tr.even, table tr.alt, table tr:nth-of-type(even) {*/
+/*    background: #626262*/
+/*}*/
+
+/*!* was f7f8f7 *!*/
+/*table:not(.linenotable):not(.CodeRay) thead, table tfoot {*/
+/*    background: #626262*/
+/*}*/
+
+/*tbody tr th {*/
+/*    background: #626262*/
+/*}*/
+
+/*!* was: 7a2518 *!*/
+/*.subheader, .admonitionblock td.content > .title, .audioblock > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .stemblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, table.tableblock > .title, .verseblock > .title, .videoblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title,*/
+/*#toctitle,*/
+/*.sidebarblock > .content > .title,*/
+/*.quoteblock blockquote::before,*/
+/*    !* was: several *!*/
+/*td.icon {*/
+/*    filter: invert(90%) hue-rotate(180deg);*/
+/*}*/
+
+/*!* was: f8f8f7 *!*/
+/*.sidebarblock, .exampleblock, .exampleblock > .content {*/
+/*    background: #626262;*/
+/*    border-color: #626262;*/
+/*    box-shadow: 0 1px 4px #626262*/
+/*}*/
+
+/*!* was: f7f7f8 *!*/
+/*.exampleblock > .content > :last-child > :last-child, .exampleblock > .content .olist > ol > li:last-child > :last-child, .exampleblock > .content .ulist > ul > li:last-child > :last-child, .exampleblock > .content .qlist > ol > li:last-child > :last-child, .sidebarblock > .content > :last-child > :last-child, .sidebarblock > .content .olist > ol > li:last-child > :last-child, .sidebarblock > .content .ulist > ul > li:last-child > :last-child, .sidebarblock > .content .qlist > ol > li:last-child > :last-child {*/
+/*    margin-bottom: 0*/
+/*}*/
+
+/*#toc {*/
+/*    background-color: #626262 !important;*/
+/*    border-color: #626262 !important;*/
+/*}*/
+
+/*h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {*/
+/*    color: #cccccc*/
+/*}*/
+
+/*!* scroll bar color change to match the dark scheme *!*/
+/*::-webkit-scrollbar {*/
+/*    width: 12px;*/
+/*    height: 12px;*/
+/*    background-color: inherit;*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb {*/
+/*    -webkit-border-radius: 10px;*/
+/*    border: 2px solid #2c2c2c;*/
+/*    background-color: #404040;*/
+/*}*/
+
+/*::-webkit-scrollbar-track {*/
+/*    width: 12px;*/
+/*    height: 12px;*/
+/*    background-color: #2c2c2c;*/
+/*}*/
+</style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Template Method Pattern</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_descriptions">Descriptions</a></li>
+<li><a href="#_uml">UML</a></li>
+<li><a href="#_code_examples">Code Examples</a>
+<ul class="sectlevel2">
+<li><a href="#_template">Template</a></li>
+<li><a href="#_client">Client</a></li>
+<li><a href="#_results">Results</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_descriptions">Descriptions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>동작 상의 알고리즘 프로그램의 뼈대를 정의하는 행위 디자인 패턴이다.</p>
+</div>
+<div class="paragraph">
+<p>알고리즘의 구조를 변경하지 않고 알고리즘의 특정 단계들을 다시 정의할 수 있게 해준다.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">GOF</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>알고리즘의 구조를 메소드에 정의하고, 하위 클래스에서 알고리즘 구조의 변경없이 알고리즘을 재정의 하는 패턴이다.</p>
+</li>
+<li>
+<p>알고리즘이 단계별로 나누어 지거나, 같은 역할을 하는 메소드이지만 여러곳에서 다른형태로 사용이 필요한 경우 유용한 패턴이다.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>[ <a href="../../../">Root</a> ]
+[ <a href="../index.html">Home</a> ]
+[ <a href="#header">Top</a> ]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_uml">UML</h2>
+<div class="sectionbody">
+<div class="imageblock text-center">
+<div class="content">
+<img src="template_method.png" alt="template method">
+</div>
+</div>
+<div class="paragraph">
+<p>[ <a href="../../../">Root</a> ]
+[ <a href="../index.html">Home</a> ]
+[ <a href="#header">Top</a> ]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_examples">Code Examples</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_template">Template</h3>
+<div class="listingblock">
+<div class="title">AbstractClass</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">package</span> <span class="nn">net.razy.design.patterns.behavioral.template_method</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AbstractClass</span> <span class="o">{</span>
+
+    <span class="c1">// Template Method : 알고리즘의 구조 정의</span>
+    <span class="kd">public</span> <span class="kd">final</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nExecute Run Method on "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
+        <span class="n">ready</span><span class="o">();</span>
+        <span class="n">send</span><span class="o">();</span>
+        <span class="n">close</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Hook Method: 개별 알고리즘</span>
+    <span class="kt">void</span> <span class="nf">ready</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\t- Ready!!"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Hook Method: 개별 알고리즘</span>
+    <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">send</span><span class="o">();</span>
+
+    <span class="c1">// Hook Method: 개별 알고리즘</span>
+    <span class="kt">void</span> <span class="nf">close</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\t- Closed!!"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">MailClass</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">package</span> <span class="nn">net.razy.design.patterns.behavioral.template_method</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MailClass</span> <span class="kd">extends</span> <span class="nc">AbstractClass</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kt">void</span> <span class="nf">send</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\t- Send Mail"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">TextClass</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">package</span> <span class="nn">net.razy.design.patterns.behavioral.template_method</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TextClass</span> <span class="kd">extends</span> <span class="nc">AbstractClass</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kt">void</span> <span class="nf">send</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\t- Send Text"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_client">Client</h3>
+<div class="listingblock">
+<div class="title">Client</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">package</span> <span class="nn">net.razy.design.patterns.behavioral.template_method</span><span class="o">;</span>
+
+<span class="cm">/**
+ * GOF
+ * 객체의 연산에는 알고리즘의 뼈대만을 정의하고 각 단계에서 수행할 구체적 처리는 서브클래스 쪽으로 미룹니다.
+ * 알고리즘의 구조 자체는 그대로 놔둔 채 알고리즘 각 단계 처리를 서브클래스에서 재정의할 수 있게 합니다.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="nf">MailClass</span><span class="o">().</span><span class="na">run</span><span class="o">();</span>
+        <span class="k">new</span> <span class="nf">TextClass</span><span class="o">().</span><span class="na">run</span><span class="o">();</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_results">Results</h3>
+<div class="listingblock">
+<div class="content">
+<pre>Execute Run Method on MailClass
+	- Ready!!
+	- Send Mail
+	- Closed!!
+
+Execute Run Method on TextClass
+	- Ready!!
+	- Send Text
+	- Closed!!</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>[ <a href="../../../">Root</a> ]
+[ <a href="../index.html">Home</a> ]
+[ <a href="#header">Top</a> ]</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

@@ -1,4 +1,0 @@
-ifdef::root_path[[ link:{root_path}/[Root] ]]
-ifdef::docs_path[[ xref:{docs_path}/index.adoc[Home] ]]
-ifndef::docs_path[[ xref:index.adoc[Home] ]]
-[ xref:#header[Top] ]
